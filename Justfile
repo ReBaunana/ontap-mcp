@@ -18,8 +18,8 @@ license-check:
     @go run github.com/frapposelli/wwhrd@latest check -q -t
 
 @_lint-impl target:
-    cd {{target}} && go run github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.9.0 run ./...
-    cd {{target}} && go run golang.org/x/tools/gopls/internal/analysis/modernize/cmd/modernize@latest $(go list ./... | grep -v /third_party/)
+    cd {{target}} && go run github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.15.0 run ./...
+    cd {{target}} && go run golang.org/x/tools/go/analysis/passes/modernize/cmd/modernize@v0.52.0 $(go list ./... | grep -v /third_party/)
     cd {{target}} && go run golang.org/x/vuln/cmd/govulncheck@latest ./...
 
 @lint:
